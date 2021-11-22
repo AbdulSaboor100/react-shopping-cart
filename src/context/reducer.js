@@ -1,4 +1,5 @@
 export let data = {
+  addToCart : [],
     products : [
         {
           _id: "1",
@@ -65,12 +66,15 @@ export let data = {
 
 export function reducer(state, action) {
     switch (action.type) {
-        // case "CURRENT_USER": {
-        //     return {
-        //         ...state,
-        //         currentUser: action.payload
-        //     }
-        // }
+        case "ADD_TO_CART": {
+          let userClone = state.addToCart.slice(0)
+          userClone.push(action.payload)
+          console.log(userClone)
+            return {
+                ...state,
+                addToCart: userClone
+            }
+        }
         
         
         default:
